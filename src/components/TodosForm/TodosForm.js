@@ -16,7 +16,7 @@ export default function TodosForm({addTitle}) {
   return (
     <>
       <form className="input_block" onSubmit={(e)=>{SubmitForm(e)}}>
-        <input className="input_text" name='title' value={title} onInput={e => setTitle(e.target.value)} />
+        <input className="input_text" value={title} onInput={e => setTitle(e.target.value)} />
         <button className="input_btn">Send Task</button>
       </form>
     </>
