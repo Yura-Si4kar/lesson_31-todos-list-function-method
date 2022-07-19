@@ -1,7 +1,7 @@
 import '../../css/index.css';
 import { useEffect, useState } from "react";
 import TodosList from '../TodosList/TodosList';
-import { deleteItem, getTodosList, switchTodosClass } from '../../api';
+import { addTodosItem, deleteItem, getTodosList, switchTodosClass } from '../../api';
 import TodosForm from '../TodosForm/TodosForm';
 
 
@@ -26,7 +26,13 @@ export default function App() {
   function deleteTodo(id) {
     deleteItem(id);
 
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
+
+  function addTitle(newTitle) {
+    addTodosItem(newTitle);
+
+    setTodos(todos.map(...todos, {...newTitle, isDone: false}))
   }
 
   return (
@@ -35,7 +41,7 @@ export default function App() {
         todos={todos}
         onToggle={toggleTodo}
         onDelete={deleteTodo} />
-      <TodosForm/>
+      <TodosForm addTitle={addTitle}/>
     </>
   );
 }

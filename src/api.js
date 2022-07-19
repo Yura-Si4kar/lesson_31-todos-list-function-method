@@ -20,3 +20,13 @@ export function deleteItem(id) {
       method: 'DELETE',
     })
 }
+
+export function addTodosItem(newTitle) {
+    return fetch(TODOS_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTitle),
+    })
+}
