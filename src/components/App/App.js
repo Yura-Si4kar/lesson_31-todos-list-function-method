@@ -32,7 +32,7 @@ export default function App() {
   function addTitle(newTitle) {
     addTodosItem(newTitle);
 
-    setTodos(todos.map(...todos, { ...newTitle, isDone: false }));
+    setTodos(todos.map(...todos, {...newTitle, isDone:false}));
   }
 
   return (
